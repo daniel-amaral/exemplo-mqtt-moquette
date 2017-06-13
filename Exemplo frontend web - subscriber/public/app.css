@@ -1,0 +1,19 @@
+.refresh-options {
+	margin: 40px 10%;
+}
+
+.chart-module {
+	display: block;
+	width: 80%;
+	margin: 50px 10%;
+	border-bottom: 1px solid #5d7f8c;
+}
+
+.chart-title {
+	font-size: 19px;
+	font-weight: bold;
+}
+
+.refresh-btn {
+	float: right;
+}

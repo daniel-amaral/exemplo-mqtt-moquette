@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>MQTT</title>
+		<link rel="icon" type="image/png" href="/resources/mqttorg.png">
+
+		<script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
+		<script type="text/javascript" src="/bower_components/angular-animate/angular-animate.min.js"></script>
+		<script type="text/javascript" src="/bower_components/d3/d3.min.js"></script>
+		<script type="text/javascript" src="/bower_components/nvd3/build/nv.d3.min.js"></script> <!-- or use another assembly -->
+		<script type="text/javascript" src="/bower_components/angular-nvd3/dist/angular-nvd3.min.js"></script>
+		<link rel="stylesheet" href="/bower_components/nvd3/build/nv.d3.min.css">
+		
+		<script type="text/javascript" src="app.js"></script>
+		<link rel="stylesheet" type="text/css" href="app.css">
+	</head>
+	<body ng-app="app" ng-controller="controller">
+		<h2>MQTT - Exemplos</h2>
+		<div class="refresh-options">
+			<span>Atualização:</span>
+			<select ng-model="refreshMode">
+				<option value="auto">Automática</option>
+				<option value="manual" selected>Manual</option>
+			</select>
+		</div>
+		<div class="chart-module">
+			<span class="chart-title">Gráfico de temperatura</span>
+			<button class="refresh-btn" ng-if="refreshMode === 'manual'" ng-click="refreshTempChart()">Atualizar</button>
+			<br>
+			<!--
+			-->
+			<nvd3 options="temperatureChart.options" data="temperatureChart.data" api="api"></nvd3>
+		</div>
+		<div class="chart-module">
+			<span class="chart-title">Gráfico de umidade</span>
+			<button class="refresh-btn" ng-if="refreshMode === 'manual'" ng-click="refreshHumidityChart()">Atualizar</button>
+			<br>
+			<nvd3 options="humidityChart.options" data="humidityChart.data" api="api2"></nvd3>
+		</div>
+	</body>
+</html>
